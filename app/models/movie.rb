@@ -14,6 +14,8 @@
 class Movie < ActiveRecord::Base
   has_many :reviews
 
+  has_many :movieuser, :through => :reviews 
+
   attr_accessible :title, :rating, :description, :release_date
 
   before_save :capitalize_title

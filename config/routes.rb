@@ -1,6 +1,12 @@
 Testing::Application.routes.draw do
 
-resources :movies
+  get "reviews/new"
+
+  get "reviews/create"
+
+resources :movies do
+    resources :reviews
+end
 
 root :to => redirect('/movies')
 

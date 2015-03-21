@@ -12,5 +12,7 @@
 class Review < ActiveRecord::Base
   belongs_to :movie
   belongs_to :movieuser
-  attr_protected :movieuser_id # see text
+  # attr_protected :movieuser_id # see text
+  attr_accessible :potatoes, :comments , :movieuser_id, :movie_id
+
 end
