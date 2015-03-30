@@ -13,8 +13,10 @@
       - if @current_user
         %p.welcome  Welcome, #{@current_user.name}!
         = link_to 'Log Out', '/logout' 
-      - else
+      - elsif not @user
         %p.login= link_to 'Log in with your Twitter account', '/auth/twitter'
+        %p.login= link_to 'Log in', '/login'
+        %p.login= link_to 'Sign up', '/signup'   
 
     #main
       - if flash[:notice]

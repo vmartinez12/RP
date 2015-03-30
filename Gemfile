@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'bcrypt-ruby', '~> 3.0.0'
+
 gem 'annotate', '~>2.4.1beta'
 
 # gem 'omniauth'

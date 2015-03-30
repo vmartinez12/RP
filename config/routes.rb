@@ -1,5 +1,8 @@
 Testing::Application.routes.draw do
 
+  resources :users
+
+
   get "reviews/new"
 
   get "reviews/create"
@@ -18,9 +21,18 @@ post '/movies/search_tmdb'
 
 get  'auth/twitter/callback' => 'sessions#create',:as => 'login'
 
+get 'signup' => 'users#new'
+
+post 'signup' => 'users#create', :as => 'signup'
+
+get 'login' => 'sessions#new', :as => 'loginuser'
+
+post 'login' => 'sessions#find', :as => 'loginuser'  
+
+
 #post 'logout'  => 'sessions#destroy'
 
-match 'logout' => 'sessions#destroy' 
+match 'logout' => 'sessions#destroy' , as: 'logout'
 
 # get  'auth/failure' => 'sessions#failure'
 match 'auth/failure' => redirect('/')
