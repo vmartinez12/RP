@@ -20,8 +20,8 @@ class Movieuser < ActiveRecord::Base
   def  self.from_omniauth(auth)
   	where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
   end
-
-  def self.create_from_omniauth(auth)
+  
+  def self.create_with_omniauth(auth)
     
     Movieuser.create!(
       :provider => auth["provider"],
