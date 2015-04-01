@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   	if session[:user_id]
       if session[:provider] 
         @current_user ||= Movieuser.find(session[:user_id])
+        #raise @current_user.inspect
       else     
         @current_user ||=  User.find(session[:user_id])
        end  

@@ -10,7 +10,7 @@
 
     #login
 
-      - if @current_user
+      - if @current_user 
         %p.welcome  Welcome, #{@current_user.name}!
         = link_to 'Log Out', '/logout' 
       - elsif not @user

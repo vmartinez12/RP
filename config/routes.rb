@@ -2,7 +2,6 @@ Testing::Application.routes.draw do
 
   resources :users
 
-
   get "reviews/new"
 
   get "reviews/create"
@@ -29,12 +28,8 @@ get 'login' => 'sessions#new', :as => 'loginuser'
 
 post 'login' => 'sessions#find', :as => 'loginuser'  
 
-
-#post 'logout'  => 'sessions#destroy'
-
 match 'logout' => 'sessions#destroy' , as: 'logout'
 
-# get  'auth/failure' => 'sessions#failure'
 match 'auth/failure' => redirect('/')
 
 
