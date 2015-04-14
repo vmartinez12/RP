@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
 
  before_filter :authorize, only: [:edit, :update]
  
- #skip_before_filter :set_current_user, only: [:index] 
+ skip_before_filter :set_current_user, only: [:index] 
 
    def index
     @movies = Movie.all
@@ -43,8 +43,13 @@ class MoviesController < ApplicationController
 
   def search_tmdb
     # hardwire to simulate failure
-    flash[:warning] = "'#{params[:search_terms]}' was not found in TMDb."
-    redirect_to movies_path
+    # This was the sad path    
+    # flash[:warning] = "'#{params[:search_terms]}' was not found in TMDb."
+    #redirect_to movies_path
+
+    # To  run Rspec test spec 1
+    @movies = Movie.find_in_tmdb(params[:search_terms])
+
   end
 
 end
