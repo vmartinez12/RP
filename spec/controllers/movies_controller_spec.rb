@@ -6,11 +6,10 @@ describe MoviesController do
       @fake_results = [mock('movie1'), mock('movie2')]
     end
     it 'should call the model method that performs TMDb search' do
-      Movie.should_receive(:find_in_tmdb).with('hardware').
-        and_return(@fake_results)
+      Movie.should_receive(:find_in_tmdb).with('hardware').and_return(@fake_results)
       post :search_tmdb, {:search_terms => 'hardware'}
     end
-    
+
     describe 'after valid search' do
       before :each do
         Movie.stub(:find_in_tmdb).and_return(@fake_results)
